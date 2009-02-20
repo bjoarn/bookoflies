@@ -8,6 +8,20 @@
   <%= stylesheet_link_tag 'screen', :media => 'all' %>
 </head>
 <body>
+	<ul>
+		<li><%= link_to "Liste over spillesteder", places_path %></li>
+		<li><%= link_to "Liste over personer", people_path %></li>
+		<li><%= link_to "opret et nyt spillested", new_place_path %></li>
+		<%- if person_logged_in? -%>
+		<li><%= link_to "se mine personlige oplysninger", person_path(session[:person_id]) %></li>
+		<li><%= link_to "editer personlige oplysninger", edit_person_path(session[:person_id]) %></li>
+		<li><%= link_to "ændre kodeord", change_password_path %></li>
+		<li><%= link_to "log ud", logout_path %></li>
+		<%- else -%>
+		<li><%= link_to "log ind", login_path %></li>
+		<li><%= link_to "opret ny konto", new_person_path %></li>
+		<%- end -%>
+	</ul>
     <%= yield :layout %>
 </body>
 </html>
