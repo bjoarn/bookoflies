@@ -66,7 +66,7 @@ end
 
   # GET /people/1/edit
   def edit
-    @person = Person.find(params[:id])
+    @person = current_person
   end
 
   # POST /people
@@ -89,8 +89,8 @@ end
   # PUT /people/1
   # PUT /people/1.xml
   def update
-    @person = Person.find(params[:id])
-
+    @person = current_person
+    
     respond_to do |format|
       if @person.update_attributes(params[:person])
         flash[:notice] = 'Person was successfully updated.'
@@ -107,22 +107,42 @@ end
     @person = current_person
     if request.post?
       flash[:notice] = flash[:error] = nil
-      if params[:new_password] == params[:new_password_confirmation]
+      @person.new_password = params[:new_password]
+      @person.new_password_confirmation = params[:new_password_confirmation]
+      if @person.valid?
         @person.password = params[:new_password]
         @person.save!
         flash[:notice] = "Dit password er blevet skiftet."
       else
-        flash[:error] = "De to passwords var ikke ens, prøv igen."
+        flash[:error] = @person.errors.full_messages.join(' ')
         redirect_to change_password_path #redirect to same action but with method => get (needed for the flash to expire on reload)
       end
     end
   end
   
+  # assign them a random one and mail it to them, asking them to change it
+  def forgot_password
+    if request.post?
+      flash[:notice] = flash[:error] = nil
+      @person = Person.find_by_email(params[:email])
+      unless @person.nil?
+        random_password = Array.new(10).map { (65 + rand(58)).chr }.join
+        @person.password = random_password
+        @person.save!
+        Mailer.deliver_password_change(@person, random_password)
+        flash[:notice] = "Dit password er blevet nulstillet. Du vil modtage en e-mail med dit nye password."
+        redirect_to login_path
+      else
+        flash[:error] = "Den e-mail du indtastede findes ikke i systemet. Prøv igen."
+        redirect_to forgot_password_path #redirect to same action but with method => get (needed for the flash to expire on reload)
+      end
+    end
+  end
 
   # DELETE /people/1
   # DELETE /people/1.xml
   def destroy
-    @person = Person.find(params[:id])
+    @person = current_person
     @person.destroy
     remove_login_from_session
 
