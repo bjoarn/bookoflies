@@ -1,6 +1,9 @@
 class Person < ActiveRecord::Base
   include BCrypt
 
+  has_many :employments
+  has_many :places, :through => :employments
+
   validates_presence_of :name, :email
   validates_uniqueness_of :email
 

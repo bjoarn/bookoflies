@@ -9,5 +9,12 @@ module ApplicationHelper
     !current_person.nil?
   end
 
+  def t(textile)
+    RedCloth.new((textile)).to_html
+  end
+  
+  def title(page_title)
+    content_for(:title) { "#{page_title} - " }
+  end
 
 end
