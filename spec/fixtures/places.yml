@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  street-address: MyString
+  extended-address: MyString
+  email: MyString
+  phone: MyString
+  zip: MyString
+  city: MyString
+  web-address: MyString
+  mixer: MyString
+  pa_system: MyString
+  monitor_system: MyString
+  monitor_mixer: MyString
+  outboard: MyText
+
+two:
+  name: MyString
+  description: MyText
+  street-address: MyString
+  extended-address: MyString
+  email: MyString
+  phone: MyString
+  zip: MyString
+  city: MyString
+  web-address: MyString
+  mixer: MyString
+  pa_system: MyString
+  monitor_system: MyString
+  monitor_mixer: MyString
+  outboard: MyText

@@ -1,0 +1,21 @@
+<h1 class="first">Log ind</h1>
+
+<% form_tag(login_url) do %>
+<%= content_tag 'div', h(flash[:notice]), :class => 'notice', :id => 'notice' if flash[:notice] %>
+<%= content_tag 'div', h(flash[:error]), :class => 'notice error', :id => 'error' if flash[:error] %>
+<div class="block">
+  <%= label_tag :email, "E-mail" %>
+  <%= text_field_tag :email, params[:email] %>
+</div>
+
+<div class="block">
+  <%= label_tag :password, "Password" %>
+  <%= password_field_tag :password, params[:password] %>
+</div>
+
+<ul class="button-panel">
+  <li class="first"><%= submit_tag "Log ind" %></li>
+  <li>(<%= link_to "Jeg har glemt mit password", forgot_password_path %>)</li>
+</ul>
+
+<% end %>
