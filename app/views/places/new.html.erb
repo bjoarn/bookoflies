@@ -1,67 +1,73 @@
-<h1>New place</h1>
+<h1>Opret nyt spillested</h1>
 
 <% form_for(@place) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :name %><br />
+<div class="placeform">
+  <div>
+    <%= f.label :name, "Navn" %><br />
     <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
+  </div>
+  <div>
+    <%= f.label :description, "Beskrivelse" %><br />
     <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.label :street_address %><br />
+  </div>
+</div>
+<div class="placeformcontact">
+  <div>
+    <%= f.label :street_address, "Adresse" %><br />
     <%= f.text_field :street_address %>
-  </p>
-  <p>
-    <%= f.label :extended_address %><br />
+  </div>
+  <div>
+    <%= f.label :extended_address, "Adresse" %><br />
     <%= f.text_field :extended_address %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </p>
-  <p>
-    <%= f.label :zip %><br />
+  </div>
+  <div>
+    <%= f.label :zip, "Postnr." %><br />
     <%= f.text_field :zip %>
-  </p>
-  <p>
-    <%= f.label :city %><br />
+  </div>
+  <div>
+    <%= f.label :city, "By" %><br />
     <%= f.text_field :city %>
-  </p>
-  <p>
-    <%= f.label :web_address %><br />
+  </div>
+  <div>
+    <%= f.label :phone, "Telefon" %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div>
+    <%= f.label :email, "Email" %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :web_address, "Web adresse" %><br />
     <%= f.text_field :web_address %>
-  </p>
-  <p>
-    <%= f.label :mixer %><br />
-    <%= f.text_field :mixer %>
-  </p>
-  <p>
-    <%= f.label :pa_system %><br />
+  </div>
+</div>
+<div class="placeformtech">
+  <div>
+    <%= f.label :pa_system, "PA system" %><br />
     <%= f.text_field :pa_system %>
-  </p>
-  <p>
-    <%= f.label :monitor_system %><br />
+  </div>
+  <div>
+    <%= f.label :mixer, "Mixer" %><br />
+    <%= f.text_field :mixer %>
+  </div>
+  <div>
+    <%= f.label :monitor_system, "Monitor system" %><br />
     <%= f.text_field :monitor_system %>
-  </p>
-  <p>
-    <%= f.label :monitor_mixer %><br />
+  </div>
+  <div>
+    <%= f.label :monitor_mixer, "Monitor mixer" %><br />
     <%= f.text_field :monitor_mixer %>
-  </p>
-  <p>
-    <%= f.label :outboard %><br />
+  </div>
+  <div>
+    <%= f.label :outboard, "Outboard" %><br />
     <%= f.text_area :outboard %>
-  </p>
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
+  </div>
+</div>
+<div class="formsubmit">
+    <span><%= f.submit "Opret" %></span>
+	<span class="formcancel"><%= link_to "Annuller", places_path %></span>
+</div>
 
-<%= link_to 'Back', places_path %>
+<% end %>
