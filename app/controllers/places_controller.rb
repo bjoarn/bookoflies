@@ -47,7 +47,7 @@ class PlacesController < ApplicationController
 
     respond_to do |format|
       if @place.save
-        flash[:notice] = 'Place was successfully created.'
+        flash[:notice] = 'Spillestedet er oprettet.'
         format.html { redirect_to(@place) }
         format.xml  { render :xml => @place, :status => :created, :location => @place }
       else
@@ -64,7 +64,7 @@ class PlacesController < ApplicationController
         name, city, web_address, phone = place.split(';')
         Place.create(:name => name, :city => city, :web_address => "http://#{web_address}", :phone => phone)
       end
-      flash[:notice] = 'Places was successfully created.'
+      flash[:notice] = 'Spillestedet er oprettet.'
     end
   end
 
@@ -75,11 +75,11 @@ class PlacesController < ApplicationController
 
     respond_to do |format|
       if @place.update_attributes(params[:place])
-        flash[:notice] = 'Place was successfully updated.'
+        flash[:notice] = 'Spillestedet er opdateret.'
         format.html { redirect_to(@place) }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { render :action => "opdater" }
         format.xml  { render :xml => @place.errors, :status => :unprocessable_entity }
       end
     end

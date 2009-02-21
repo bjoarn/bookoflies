@@ -26,7 +26,7 @@ class PeopleController < ApplicationController
         session[:original_uri] = nil
         redirect_to(uri || { :controller => "places", :action => "index" })
       else
-        flash[:error] = "Ugyldig e-mail og/eller password"
+        flash[:error] = "Ugyldig email og/eller kodeord"
         redirect_to login_path #redirect to same action but with method => get (needed for the flash to expire on reload)
       end
     else 
@@ -77,7 +77,7 @@ class PeopleController < ApplicationController
     respond_to do |format|
       if @person.save
         session[:person_id] = person.id # login
-        flash[:notice] = 'Person was successfully created.'
+        flash[:notice] = 'Kontoen er oprettet.'
         format.html { redirect_to(@person) }
         format.xml  { render :xml => @person, :status => :created, :location => @person }
       else
@@ -94,7 +94,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.update_attributes(params[:person])
-        flash[:notice] = 'Person was successfully updated.'
+        flash[:notice] = 'Kontoen er oprettet.'
         format.html { redirect_to(@person) }
         format.xml  { head :ok }
       else
@@ -113,7 +113,7 @@ class PeopleController < ApplicationController
       if @person.valid?
         @person.password = params[:new_password]
         @person.save!
-        flash[:notice] = "Dit password er blevet skiftet."
+        flash[:notice] = "Dit kodeord er blevet skiftet."
       else
         flash[:error] = @person.errors.full_messages.join(' ')
         redirect_to change_password_path #redirect to same action but with method => get (needed for the flash to expire on reload)
@@ -131,10 +131,10 @@ class PeopleController < ApplicationController
         @person.password = random_password
         @person.save!
         Mailer.deliver_password_change(@person, random_password)
-        flash[:notice] = "Dit password er blevet nulstillet. Du vil modtage en e-mail med dit nye password."
+        flash[:notice] = "Dit kodeord er blevet nulstillet. Du vil modtage en e-mail med dit nye kodeord."
         redirect_to login_path
       else
-        flash[:error] = "Den e-mail du indtastede findes ikke i systemet. Prøv igen."
+        flash[:error] = "Den email du indtastede findes ikke i systemet. Prøv igen."
         redirect_to forgot_password_path #redirect to same action but with method => get (needed for the flash to expire on reload)
       end
     end

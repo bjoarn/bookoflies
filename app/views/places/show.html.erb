@@ -31,11 +31,21 @@
 </address>
 
 <ul class="techinfo">
+	<%- unless @place.pa_system.blank? -%>
   	<li class="pasystem"><span class="field">PA system</span><span class="value"><%=h @place.pa_system %></span></li>
+	<%- end -%>
+	<%- unless @place.mixer.blank? -%>
 	<li class="mixer"><span class="field">Mixer</span><span class="value"><%=h @place.mixer %></span></li>
+	<%- end -%>
+	<%- unless @place.monitor_system.blank? -%>
   	<li class="monsystem"><span class="field">Monitor system</span><span class="value"><%=h @place.monitor_system %></span></li>
+	<%- end -%>
+	<%- unless @place.monitor_mixer.blank? -%>
   	<li class="monmixer"><span class="field">Monitor mixer</span><span class="value"><%=h @place.monitor_mixer %></span></li>
+	<%- end -%>
+	<%- unless @place.outboard.blank? -%>
   	<li class="outboard"><span class="field">Outboard</span><span class="value"><%=h @place.outboard %></span></li>
+	<%- end -%>
 </ul>
 
 <ul class="edit">
