@@ -76,7 +76,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.save
-        session[:person_id] = person.id # login
+        session[:person_id] = @person.id # login
         flash[:notice] = 'Kontoen er oprettet.'
         format.html { redirect_to(@person) }
         format.xml  { render :xml => @person, :status => :created, :location => @person }
@@ -94,7 +94,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.update_attributes(params[:person])
-        flash[:notice] = 'Kontoen er oprettet.'
+        flash[:notice] = 'Kontoen er opdateret.'
         format.html { redirect_to(@person) }
         format.xml  { head :ok }
       else
