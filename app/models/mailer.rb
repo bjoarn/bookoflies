@@ -1,5 +1,4 @@
 class Mailer < ActionMailer::Base
-
   def password_change(user, new_password)
     subject     "Nyt Password til musikbranchen"
     recipients  user.email

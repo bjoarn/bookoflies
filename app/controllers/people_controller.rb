@@ -13,33 +13,33 @@ class PeopleController < ApplicationController
     end
   end
 
-def login
-  if request.post?
-    flash[:notice] = flash[:error] = nil
-    person = Person.authenticate(params[:email], params[:password])
-    unless person.nil?
-      flash[:notice] = "Du blev logget ind"
+  def login
+    if request.post?
+      flash[:notice] = flash[:error] = nil
+      person = Person.authenticate(params[:email], params[:password])
+      unless person.nil?
+        flash[:notice] = "Du blev logget ind"
 
-      session[:person_id] = person.id
+        session[:person_id] = person.id
 
-      uri = session[:original_uri]
-      session[:original_uri] = nil
-      redirect_to(uri || { :controller => "places", :action => "index" })
-    else
-      flash[:error] = "Ugyldig e-mail og/eller password"
-      redirect_to login_path #redirect to same action but with method => get (needed for the flash to expire on reload)
+        uri = session[:original_uri]
+        session[:original_uri] = nil
+        redirect_to(uri || { :controller => "places", :action => "index" })
+      else
+        flash[:error] = "Ugyldig e-mail og/eller password"
+        redirect_to login_path #redirect to same action but with method => get (needed for the flash to expire on reload)
+      end
+    else 
+      render :action => "login"
     end
-  else 
-    render :action => "login"
+
   end
 
-end
-
-def logout
-  remove_login_from_session
-  flash[:notice] = "Logget ud"
-  redirect_to root_path
-end
+  def logout
+    remove_login_from_session
+    flash[:notice] = "Logget ud"
+    redirect_to root_path
+  end
 
 
   # GET /people/1
@@ -76,6 +76,7 @@ end
 
     respond_to do |format|
       if @person.save
+        session[:person_id] = person.id # login
         flash[:notice] = 'Person was successfully created.'
         format.html { redirect_to(@person) }
         format.xml  { render :xml => @person, :status => :created, :location => @person }
@@ -90,7 +91,7 @@ end
   # PUT /people/1.xml
   def update
     @person = current_person
-    
+
     respond_to do |format|
       if @person.update_attributes(params[:person])
         flash[:notice] = 'Person was successfully updated.'
@@ -102,7 +103,7 @@ end
       end
     end
   end
-  
+
   def change_password
     @person = current_person
     if request.post?
@@ -119,7 +120,7 @@ end
       end
     end
   end
-  
+
   # assign them a random one and mail it to them, asking them to change it
   def forgot_password
     if request.post?
@@ -151,7 +152,7 @@ end
       format.xml  { head :ok }
     end
   end
-  
+
   private
   def remove_login_from_session
     session[:person_id] = nil
