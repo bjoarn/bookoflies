@@ -1,73 +1,44 @@
-<p>
-  <b>Name:</b>
-  <%=h @place.name %>
-</p>
+<h1><%=h @place.name %></h1>
 
-<p>
-  <b>Description:</b>
-  <%=h @place.description %>
-</p>
+<%- unless @place.description.blank? -%>
+	<div class="description"><%=h @place.description %></div>
+<%- end -%>
 
-<p>
-  <b>Street_address:</b>
-  <%=h @place.street_address %>
-</p>
+<address>
+<ul>
+	<%- unless @place.street_address.blank? -%>
+		<li><%=h @place.street_address %></li>
+	<%- end -%>
+	<%- unless @place.extended_address.blank? -%>
+		<li><%=h @place.extended_address %></li>
+	<%- end -%>
+	<%- unless @place.zip.blank? -%>
+		<li><%=h @place.zip %></li>
+	<%- end -%>
+	<%- unless @place.city.blank? -%>
+		<li><%=h @place.city %></li>
+	<%- end -%>
+	<%- unless @place.phone.blank? -%>
+		<li><%=h @place.phone %></li>
+	<%- end -%>
+	<%- unless @place.email.blank? -%>
+		<li><%=h @place.email %></li>
+	<%- end -%>
+	<%- unless @place.web_address.blank? -%>
+		<li><%= link_to @place.web_address, @place.web_address %></li>
+	<%- end -%>
+</ul>
+</address>
 
-<p>
-  <b>Extended_address:</b>
-  <%=h @place.extended_address %>
-</p>
+<ul class="techinfo">
+  	<li class="pasystem"><span class="field">PA system</span><span class="value"><%=h @place.pa_system %></span></li>
+	<li class="mixer"><span class="field">Mixer</span><span class="value"><%=h @place.mixer %></span></li>
+  	<li class="monsystem"><span class="field">Monitor system</span><span class="value"><%=h @place.monitor_system %></span></li>
+  	<li class="monmixer"><span class="field">Monitor mixer</span><span class="value"><%=h @place.monitor_mixer %></span></li>
+  	<li class="outboard"><span class="field">Outboard</span><span class="value"><%=h @place.outboard %></span></li>
+</ul>
 
-<p>
-  <b>Email:</b>
-  <%=h @place.email %>
-</p>
-
-<p>
-  <b>Phone:</b>
-  <%=h @place.phone %>
-</p>
-
-<p>
-  <b>Zip:</b>
-  <%=h @place.zip %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%=h @place.city %>
-</p>
-
-<p>
-  <b>Web_address:</b>
-  <%=h @place.web_address %>
-</p>
-
-<p>
-  <b>Mixer:</b>
-  <%=h @place.mixer %>
-</p>
-
-<p>
-  <b>Pa system:</b>
-  <%=h @place.pa_system %>
-</p>
-
-<p>
-  <b>Monitor system:</b>
-  <%=h @place.monitor_system %>
-</p>
-
-<p>
-  <b>Monitor mixer:</b>
-  <%=h @place.monitor_mixer %>
-</p>
-
-<p>
-  <b>Outboard:</b>
-  <%=h @place.outboard %>
-</p>
-
-
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
+<ul class="edit">
+  	<li><%= link_to 'Editer oplysninger', edit_place_path(@place) %></li>
+   <li><%= link_to 'Slet spillested', @place, :confirm => "Er du sikker på at du vil slette #{@place.name}?", :method => :delete %></li>
+</ul>

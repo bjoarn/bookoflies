@@ -1,23 +1,18 @@
-<p>
-  <b>Name:</b>
-  <%=h @person.name %>
-</p>
+<h1><%=h @person.name %></h1>
 
-<p>
-  <b>Email:</b>
-  <%=h @person.email %>
-</p>
+<ul class="personinfo">
+	<%- unless @person.email.blank? -%>
+		<li class="email"><%=h @person.email %></li>
+	<%- end -%>
+	<%- unless @person.phone.blank? -%>
+		<li class="phone"><%=h @person.phone %></li>
+	<%- end -%>
+</ul>
 
-<p>
-  <b>Phone:</b>
-  <%=h @person.phone %>
-</p>
-
-<p>
-  <b>Password hash:</b>
-  <%=h @person.password_hash %>
-</p>
-
-
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+<%- if person_logged_in? -%>
+<ul class="edit">
+	<li><%= link_to 'Ret personlige oplysninger', edit_person_path(@person) %></li>
+	<li><%= link_to "Ændre kodeord", change_password_path %></li>
+	<li><%= link_to 'Slet konto', @person, :confirm => 'Er du sikker?', :method => :delete %></li>
+</ul>
+<%- end -%>
