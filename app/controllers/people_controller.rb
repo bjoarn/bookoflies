@@ -76,7 +76,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.save
-        session[:person_id] = person.id # login
+        session[:person_id] = @person.id # login
         flash[:notice] = 'Person was successfully created.'
         format.html { redirect_to(@person) }
         format.xml  { render :xml => @person, :status => :created, :location => @person }
