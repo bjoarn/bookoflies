@@ -1,0 +1,15 @@
+<h1 class="first">Opret mange steder</h1>
+
+<% form_tag(bulk_places_path) do %>
+<%= content_tag 'div', h(flash[:notice]), :class => 'notice', :id => 'notice' if flash[:notice] %>
+<%= content_tag 'div', h(flash[:error]), :class => 'notice error', :id => 'error' if flash[:error] %>
+<div class="block">
+  <%= label_tag :data, "Indsæt data" %>
+  <%= text_area_tag :data, params[:data], {:size => "100x200"} %>
+</div>
+
+<ul class="button-panel">
+  <li class="first"><%= submit_tag "Opret" %></li>
+</ul>
+
+<% end %>

@@ -56,6 +56,17 @@ class PlacesController < ApplicationController
       end
     end
   end
+  
+  def create_bulk
+    if request.post?
+      flash[:notice] = flash[:error] = nil
+      params[:data].each do |place|
+        name, city, web_address, phone = place.split(';')
+        Place.create(:name => name, :city => city, :web_address => "http://#{web_address}", :phone => phone)
+      end
+      flash[:notice] = 'Places was successfully created.'
+    end
+  end
 
   # PUT /places/1
   # PUT /places/1.xml

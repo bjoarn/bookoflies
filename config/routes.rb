@@ -3,13 +3,13 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => "places"
   map.resources :people
   
+  map.bulk_places 'places/create_bulk', :controller => 'places', :action => 'create_bulk'
   map.resources :places
   
   map.login           'login',           :controller => 'people', :action => 'login'
   map.logout          'logout',          :controller => 'people', :action => 'logout'
   map.forgot_password 'forgot_password', :controller => 'people', :action => 'forgot_password'
   map.change_password 'change_password', :controller => 'people', :action => 'change_password'
-  
 
 
   # The priority is based upon order of creation: first created -> highest priority.
