@@ -1,54 +1,9 @@
-<%= content_tag 'div', h(flash[:notice]), :class => 'notice', :id => 'notice' if flash[:notice] %>
-<%= content_tag 'div', h(flash[:error]), :class => 'notice error', :id => 'error' if flash[:error] %>
+<h1>Liste over spillesteder</h1>
 
-<% if person_logged_in? %>
-<%= link_to "log ud", logout_path %>
-<% else %>
-<%= link_to "log ind", login_path %>
-<% end %>
-<h1>Listing places</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Street_address</th>
-    <th>Extended_address</th>
-    <th>Email</th>
-    <th>Phone</th>
-    <th>Zip</th>
-    <th>City</th>
-    <th>Web_address</th>
-    <th>Mixer</th>
-    <th>Pa system</th>
-    <th>Monitor system</th>
-    <th>Monitor mixer</th>
-    <th>Outboard</th>
-  </tr>
-
+<ul class="placelist">
 <% for place in @places %>
-  <tr>
-    <td><%=h place.name %></td>
-    <td><%=h place.description %></td>
-    <td><%=h place.street_address %></td>
-    <td><%=h place.extended_address %></td>
-    <td><%=h place.email %></td>
-    <td><%=h place.phone %></td>
-    <td><%=h place.zip %></td>
-    <td><%=h place.city %></td>
-    <td><%=h place.web_address %></td>
-    <td><%=h place.mixer %></td>
-    <td><%=h place.pa_system %></td>
-    <td><%=h place.monitor_system %></td>
-    <td><%=h place.monitor_mixer %></td>
-    <td><%=h place.outboard %></td>
-    <td><%= link_to 'Show', place %></td>
-    <td><%= link_to 'Edit', edit_place_path(place) %></td>
-    <td><%= link_to 'Destroy', place, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+    <li><span class="name"><%= link_to place.name, place %></span><span class="web"><%= link_to place.web_address, place.web_address %></span></li>
 <% end %>
-</table>
+</ul>
 
-<br />
-
-<%= link_to 'New place', new_place_path %>
+<div class="create_link"><%= link_to 'Opret nyt spillested', new_place_path %></div>

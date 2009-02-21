@@ -1,26 +1,11 @@
-<h1>Listing people</h1>
+<h1>Liste over personer</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Phone</th>
-    <th>Password hash</th>
-  </tr>
-
+<ul class="personlist">
 <% for person in @people %>
-  <tr>
-    <td><%=h person.name %></td>
-    <td><%=h person.email %></td>
-    <td><%=h person.phone %></td>
-    <td><%=h person.password_hash %></td>
-    <td><%= link_to 'Show', person %></td>
-    <td><%= link_to 'Edit', edit_person_path(person) %></td>
-    <td><%= link_to 'Destroy', person, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <li>
+	<span class="name"><%= link_to person.name, person %></span>
+	<span class="email"><%=h person.email %></span>
+	<span class="phone"><%=h person.phone %></span>
+  </li>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New person', new_person_path %>
+</ul>
