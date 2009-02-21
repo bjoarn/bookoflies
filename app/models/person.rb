@@ -1,7 +1,7 @@
 class Person < ActiveRecord::Base
   include BCrypt
 
-  has_many :employments
+  has_many :employments, :dependent => :delete_all
   has_many :places, :through => :employments
 
   validates_presence_of :name, :email

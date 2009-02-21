@@ -27,6 +27,4 @@ class ApplicationController < ActionController::Base
   def current_person
     @current_person ||= Person.find_by_id(session[:person_id]) # use find_by_id to avoid exceptions when not found
   end
-
-
 end
