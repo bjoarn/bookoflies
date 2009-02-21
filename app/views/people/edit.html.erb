@@ -1,24 +1,25 @@
-<h1>Editing person</h1>
+<h1>Ret personlige oplysninger</h1>
 
 <% form_for(@person) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :name %><br />
+<div class="personform">
+  <div>
+    <%= f.label :name, "Navn" %><br />
     <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
+  </div>
+  <div>
+    <%= f.label :email, "Email" %><br />
     <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :phone %><br />
+  </div>
+  <div>
+    <%= f.label :phone, "Telefon" %><br />
     <%= f.text_field :phone %>
-  </p>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
+  </div>
+</div>
+<div class="formsubmit">
+    <span><%= f.submit "Opdater" %></span>
+	<span class="formcancel"><%= link_to "Annuller", @person %></span>
+</div>
 
-<%= link_to 'Show', @person %> |
-<%= link_to 'Back', people_path %>
+<% end %>
