@@ -13,6 +13,6 @@
 <ul class="edit">
 	<li><%= link_to 'Ret personlige oplysninger', edit_person_path(@person) %></li>
 	<li><%= link_to "Ændre kodeord", change_password_path %></li>
-	<li><%= link_to 'Slet konto', @person, :confirm => 'Er du sikker?', :method => :delete %></li>
+	<li><%= link_to 'Slet konto', @person, :confirm => "Er du sikker på at du vil slette #{@person.name}?", :method => :delete %></li>
 </ul>
 <%- end -%>

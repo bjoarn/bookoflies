@@ -1,32 +1,33 @@
-<h1>New person</h1>
+<h1>Opret konto</h1>
 
 <% form_for(@person) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :name %><br />
+<div class="personform">
+  <div>
+    <%= f.label :name, "Navn" %><br />
     <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
+  </div>
+  <div>
+    <%= f.label :email, "Email" %><br />
     <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :phone %><br />
+  </div>
+  <div>
+    <%= f.label :phone, "Telefon" %><br />
     <%= f.text_field :phone %>
-  </p>
-  <div class="block">
-    <%= f.label :new_password, "Password" %>
+  </div>
+  <div>
+    <%= f.label :new_password, "Kodeord" %>
     <%= f.password_field :new_password %>
   </div>
-
-  <div class="block">
-    <%= f.label :new_password_confirmation, "Password (igen)" %>
+  <div>
+    <%= f.label :new_password_confirmation, "Kodeord (igen)" %>
     <%= f.password_field :new_password_confirmation %>
   </div>
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
+</div>
+<div class="formsubmit">
+    <span><%= f.submit "Opret" %></span>
+	<span class="formcancel"><%= link_to "Annuller", places_path %></span>
+</div>
 
-<%= link_to 'Back', people_path %>
+<% end %>
