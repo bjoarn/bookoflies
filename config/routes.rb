@@ -10,7 +10,8 @@ ActionController::Routing::Routes.draw do |map|
   map.logout          'logout',          :controller => 'people', :action => 'logout'
   map.forgot_password 'forgot_password', :controller => 'people', :action => 'forgot_password'
   map.change_password 'change_password', :controller => 'people', :action => 'change_password'
-
+  map.employ          'employ/:id',      :controller => 'places', :action => 'employ', :conditions => { :method => :post }
+  map.unemploy        'unemploy/:id',    :controller => 'places', :action => 'unemploy', :conditions => { :method => :delete }
 
   # The priority is based upon order of creation: first created -> highest priority.
 

@@ -1,3 +1,5 @@
+<% title @place.name %>
+
 <h1><%=h @place.name %></h1>
 
 <%- unless @place.description.blank? -%>
@@ -32,23 +34,37 @@
 
 <ul class="techinfo">
 	<%- unless @place.pa_system.blank? -%>
-  	<li class="pasystem"><span class="field">PA system</span><span class="value"><%=h @place.pa_system %></span></li>
+  	<li class="pasystem"><span class="field">PA system</span>: <span class="value"><%=h @place.pa_system %></span></li>
 	<%- end -%>
 	<%- unless @place.mixer.blank? -%>
-	<li class="mixer"><span class="field">Mixer</span><span class="value"><%=h @place.mixer %></span></li>
+	<li class="mixer"><span class="field">Mixer</span>: <span class="value"><%=h @place.mixer %></span></li>
 	<%- end -%>
 	<%- unless @place.monitor_system.blank? -%>
-  	<li class="monsystem"><span class="field">Monitor system</span><span class="value"><%=h @place.monitor_system %></span></li>
+  	<li class="monsystem"><span class="field">Monitor system</span>: <span class="value"><%=h @place.monitor_system %></span></li>
 	<%- end -%>
 	<%- unless @place.monitor_mixer.blank? -%>
-  	<li class="monmixer"><span class="field">Monitor mixer</span><span class="value"><%=h @place.monitor_mixer %></span></li>
+  	<li class="monmixer"><span class="field">Monitor mixer</span>: <span class="value"><%=h @place.monitor_mixer %></span></li>
 	<%- end -%>
 	<%- unless @place.outboard.blank? -%>
-  	<li class="outboard"><span class="field">Outboard</span><span class="value"><%=h @place.outboard %></span></li>
+  	<li class="outboard"><span class="field">Outboard</span>: <span class="value"><%=h @place.outboard %></span></li>
 	<%- end -%>
 </ul>
 
+<ul class="employedpeople">
+  <li>Tilknyttede personer:</li>
+<% @place.people.each do |person| %>
+  <li><%= link_to person.name, person %>
+  <%- if employed?(@place) && person == current_person -%>
+  (<%= link_to('Fjern mig', unemploy_path(@place), :confirm => "Er du sikker på at du vil slette tilknytningen?", :method => :delete) %>)
+  <%- end -%>
+  </li>
+<%- end -%>
+</ul>
+
 <ul class="edit">
-  	<li><%= link_to 'Editer oplysninger', edit_place_path(@place) %></li>
-   <li><%= link_to 'Slet spillested', @place, :confirm => "Er du sikker på at du vil slette #{@place.name}?", :method => :delete %></li>
+  <li><%= link_to 'Ret oplysninger', edit_place_path(@place) %></li>
+  <li><%= link_to 'Slet spillested', @place, :confirm => "Er du sikker på at du vil slette #{@place.name}?", :method => :delete %></li>
+  <%- if person_logged_in? && !employed?(@place) -%>
+  <li><%= link_to 'Tilknyt mig til dette spillested', employ_path(@place), :method => :post %></li>
+  <%- end -%>
 </ul>

@@ -4,27 +4,30 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
-  <title><%= yield :title %> - Musikbranchen</title>
-  <%= stylesheet_link_tag 'screen', :media => 'all' %>
+  <title><%= yield :title %>Musikbranchen</title>
+  <%= stylesheet_link_tag 'style', :media => 'all' %>
 </head>
 <body>
-	<ul>
-		<li><%= link_to "Liste over spillesteder", places_path %></li>
-		<li><%= link_to "Liste over personer", people_path %></li>
-		<li><%= link_to "Opret et nyt spillested", new_place_path %></li>
+  <div class="container">
+	<ul class="menu">
+		<li><%= link_to "Spillesteder", places_path %></li>
+		<li><%= link_to "Personer", people_path %></li>
+		<li><%= link_to "Opret spillested", new_place_path %></li>
 		<%- if person_logged_in? -%>
-		<li><%= link_to "Se personlige oplysninger", person_path(session[:person_id]) %></li>
-		<li><%= link_to "Ret personlige oplysninger", edit_person_path(session[:person_id]) %></li>
-		<li><%= link_to "Ændre kodeord", change_password_path %></li>
+		<li><%= link_to "Min konto", person_path(session[:person_id]) %></li>
 		<li><%= link_to "Log ud", logout_path %></li>
 		<%- else -%>
 		<li><%= link_to "Log ind", login_path %></li>
 		<li><%= link_to "Opret ny konto", new_person_path %></li>
 		<%- end -%>
 	</ul>
+	<div class="notice">
 	<%= content_tag 'div', h(flash[:notice]), :class => 'notice', :id => 'notice' if flash[:notice] %>
 	<%= content_tag 'div', h(flash[:error]), :class => 'notice error', :id => 'error' if flash[:error] %>
-	
+	</div>
+	  <div class="main">
     <%= yield :layout %>
+    </div>
+  </div>
 </body>
 </html>

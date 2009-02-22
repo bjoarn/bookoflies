@@ -1,8 +1,10 @@
+<% title "Lister over spillesteder" %>
+
 <h1>Liste over spillesteder</h1>
 
 <ul class="placelist">
 <% for place in @places %>
-    <li><span class="name"><%= link_to place.name, place %></span><span class="web"><%= link_to place.web_address, place.web_address %></span></li>
+    <li><span class="name"><%= link_to place.name, place %></span> &bull; <span class="web"><%= link_to place.web_address, place.web_address %></span></li>
 <% end %>
 </ul>
 

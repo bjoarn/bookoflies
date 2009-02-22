@@ -67,6 +67,28 @@ class PlacesController < ApplicationController
       flash[:notice] = 'Spillestedet er oprettet.'
     end
   end
+  
+  def employ
+    @place = Place.find(params[:id])
+    @place.people << current_person unless @place.people.include?(current_person)
+    flash[:notice] = 'Du blev tilknyttet spillestedet.'
+
+    respond_to do |format|
+      format.html { redirect_to(place_url(@place)) }
+      format.xml  { head :ok }
+    end
+  end
+
+  def unemploy
+    @place = Place.find(params[:id])
+    @place.people.delete(current_person)
+    flash[:notice] = 'Din tilknytning til dette spillested blev fjernet.'
+
+    respond_to do |format|
+      format.html { redirect_to(place_url(@place)) }
+      format.xml  { head :ok }
+    end
+  end
 
   # PUT /places/1
   # PUT /places/1.xml

@@ -1,3 +1,5 @@
+<% title @person.name %>
+
 <h1><%=h @person.name %></h1>
 
 <ul class="personinfo">
@@ -7,6 +9,13 @@
 	<%- unless @person.phone.blank? -%>
 		<li class="phone"><%=h @person.phone %></li>
 	<%- end -%>
+</ul>
+
+<ul class="employedpeople">
+  <li>Personen er tilknyttet følgende spillesteder:</li>
+<% @person.places.each do |place| %>
+  <li><%= link_to place.name, place %></li>
+<% end %>
 </ul>
 
 <%- if person_logged_in? -%>

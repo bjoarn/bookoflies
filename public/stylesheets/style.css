@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #f9fafa;
+  color: #000;
+  font: 12px/1.6em verdana, sans-serif;
+}
+
+ul, li, h1, form, label, input, textarea {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font: 20px/1.2em bold arial, sans-serif;
+  color: #896;
+}
+a, a:visited {
+  color: #129;
+  text-decoration: none;
+}
+a:hover, a:active, a:focus {
+  color: #56d;
+  border-bottom: 1px dashed #000;
+}
+
+input, textarea {
+  padding: 1px 3px 2px 3px;
+  border: 1px solid #ddd;
+  background: #f9fafa;
+  font: 12px/1.4em verdana, sans-serif;
+}
+
+.container {
+  margin: 20px auto;
+  width: 1000px;
+  background: #fafafa;
+  border: 1px dashed #ddd;
+}
+
+.menu {
+  float: left;
+  list-style: none;
+  margin: 10px;
+  width: 200px;
+  background: #faf9fa;
+  border: 1px dashed #ddd;
+}
+
+.menu li {
+  
+}
+.menu li a, .menu li a:visited {
+  display: block;
+  padding: 3px 5px 2px 15px;
+  background: #f2f2f2;
+  border: none;
+  text-decoration: none;
+  font: 16px/1.2em bold arial, sans-serif;  
+  color: #896;
+}
+.menu li a:hover, .menu li a:active, .menu li a:focus {
+  background: #fafafa;
+  border: none;
+  text-decoration: none;
+  color: #563;
+}
+
+.main {
+  margin: 10px 10px 10px 260px;
+  background: #faf9fa;
+  border: 1px dashed #ddd;  
+}
+
+.main h1 {
+  padding: 3px 10px;
+  background: #eee;
+}

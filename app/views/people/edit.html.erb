@@ -1,25 +1,27 @@
+<% title "Ret personlige oplysninger" %>
+
 <h1>Ret personlige oplysninger</h1>
 
 <% form_for(@person) do |f| %>
   <%= f.error_messages %>
 
-<div class="personform">
-  <div>
+<div class="form">
+  <div class="formfield">
     <%= f.label :name, "Navn" %><br />
     <%= f.text_field :name %>
   </div>
-  <div>
+  <div class="formfield">
     <%= f.label :email, "Email" %><br />
     <%= f.text_field :email %>
   </div>
-  <div>
+  <div class="formfield">
     <%= f.label :phone, "Telefon" %><br />
     <%= f.text_field :phone %>
   </div>
-</div>
-<div class="formsubmit">
+  <div class="formsubmit">
     <span><%= f.submit "Opdater" %></span>
-	<span class="formcancel"><%= link_to "Annuller", @person %></span>
+	  <span class="formcancel"><%= link_to "Annuller", @person %></span>
+  </div>
 </div>
 
 <% end %>
