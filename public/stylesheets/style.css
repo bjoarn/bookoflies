@@ -12,23 +12,26 @@ ul, li, h1, h2, p, form, label, input, textarea {
 }
 
 h1 {
-	font: 18px/1.4em "Courier New", Courier, monospace;
-	padding-bottom: 20px;
-	border-bottom: 1px dotted #bbb;
+	display: ;
+	font: 18px/1.4em monospace;
+	color: #600;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #000;
 }
 
 h2 {
 	font: bold 14px/1.4em "Courier New", Courier, monospace;
-	padding: 10px 0 0 0;
+	padding: 10px 0 0 10px;
 }
 a, a:visited {
 	color: #000;
-	border-bottom: 1px dashed #000;
+	/*border-bottom: 1px dashed #000;*/
 	text-decoration: none;
 }
 a:hover, a:active, a:focus {
 	color: #000;
-	border-bottom: 1px solid #000;
+	text-decoration: underline;
+	/*border-bottom: 1px solid #000;*/
 }
 
 input, textarea {
@@ -64,7 +67,6 @@ input, textarea {
 	top: 190px;
 	left: 260px;
 	width: 580px;
-	border-bottom: 1px dotted #bbb;
 	text-align: center;
 }
 
@@ -74,7 +76,8 @@ input, textarea {
 	text-decoration: none; 
 }
 .header a:hover, .header a:active, .header a:focus {
-	text-decoration: underline; 
+	text-decoration: none;
+	color: #777;
 }
 
 .menu {
@@ -106,7 +109,7 @@ input, textarea {
 	left: 260px;
 	width: 580px;
 }
-
+/*
 .list {
 	list-style: none;
 	margin-bottom: 20px;
@@ -130,6 +133,28 @@ input, textarea {
 	color: #777;
 	border: none;
 	text-decoration: none;
+}
+*/
+
+.list {
+	list-style: circle;
+	margin: 20px 0 20px 35px;
+}
+
+.list span {
+	margin-right: 20px;
+}
+
+.list a, .list a:visited {
+	border: none;
+}
+
+.list a:hover, .list a:active, .list a:focus {
+	text-decoration: underline;
+}
+
+.list .web a, .list .email, .list .phone {
+	color: #777;
 }
 
 .edit {
