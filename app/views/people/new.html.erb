@@ -7,15 +7,15 @@
 
 <div class="form">
   <div class="formfield">
-    <%= f.label :name, "Navn" %><br />
+    <%= f.label :name, "Navn" %>
     <%= f.text_field :name %>
   </div>
   <div class="formfield">
-    <%= f.label :email, "Email" %><br />
+    <%= f.label :email, "Email" %>
     <%= f.text_field :email %>
   </div>
   <div class="formfield">
-    <%= f.label :phone, "Telefon" %><br />
+    <%= f.label :phone, "Telefon" %>
     <%= f.text_field :phone %>
   </div>
   <div class="formfield">
@@ -26,10 +26,10 @@
     <%= f.label :new_password_confirmation, "Kodeord (igen)" %>
     <%= f.password_field :new_password_confirmation %>
   </div>
+</div>
   <div class="formsubmit">
     <span><%= f.submit "Opret" %></span>
 	  <span class="formcancel"><%= link_to "Annuller", places_path %></span>
   </div>
-</div>
 
 <% end %>

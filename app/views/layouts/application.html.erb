@@ -9,6 +9,11 @@
 </head>
 <body>
   <div class="container">
+	<div class="servermessage">
+	<%= content_tag 'div', h(flash[:notice]), :class => 'notice', :id => 'notice' if flash[:notice] %>
+	<%= content_tag 'div', h(flash[:error]), :class => 'notice error', :id => 'error' if flash[:error] %>
+	</div>
+	<div class="header"><%= link_to "Book of Lies", places_path %></div>
 	<ul class="menu">
 		<li><%= link_to "Spillesteder", places_path %></li>
 		<li><%= link_to "Personer", people_path %></li>
@@ -21,10 +26,6 @@
 		<li><%= link_to "Opret ny konto", new_person_path %></li>
 		<%- end -%>
 	</ul>
-	<div class="notice">
-	<%= content_tag 'div', h(flash[:notice]), :class => 'notice', :id => 'notice' if flash[:notice] %>
-	<%= content_tag 'div', h(flash[:error]), :class => 'notice error', :id => 'error' if flash[:error] %>
-	</div>
 	  <div class="main">
     <%= yield :layout %>
     </div>

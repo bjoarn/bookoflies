@@ -2,23 +2,25 @@
 
 <h1><%=h @person.name %></h1>
 
+<h2><%=h @person.name %>s info</h2>
 <ul class="personinfo">
 	<%- unless @person.email.blank? -%>
-		<li class="email"><%=h @person.email %></li>
+		<li class="email"><span class="field">Email</span>: <span class="value"><%=h @person.email %></span></li>
 	<%- end -%>
 	<%- unless @person.phone.blank? -%>
-		<li class="phone"><%=h @person.phone %></li>
+		<li class="phone"><span class="field">Telefon</span>: <span class="value"><%=h @person.phone %></span></li>
 	<%- end -%>
 </ul>
 
+<h2><%=h @person.name %> er tilknyttet følgende steder</h2>
 <ul class="employedpeople">
-  <li>Personen er tilknyttet følgende spillesteder:</li>
 <% @person.places.each do |place| %>
   <li><%= link_to place.name, place %></li>
 <% end %>
 </ul>
 
-<%- if person_logged_in? -%>
+<%- if person_logged_in? -%><!-- should be changed to only show on ones own profile -->
+<h2>Funktioner</h2>
 <ul class="edit">
 	<li><%= link_to 'Ret personlige oplysninger', edit_person_path(@person) %></li>
 	<li><%= link_to "Ændre kodeord", change_password_path %></li>

@@ -5,13 +5,14 @@
 <% form_tag(bulk_places_path) do %>
 
 
-<div class="block">
+<div class="form">
   <%= label_tag :data, "Indsæt data" %>
   <%= text_area_tag :data, params[:data], {:size => "100x200"} %>
 </div>
 
-<ul class="formsubmit">
-  <li><%= submit_tag "Opret" %></li>
-</ul>
+<div class="formsubmit">
+    <span><%= submit_tag "Opret" %></span>
+	<span class="formcancel"><%= link_to "Annuller", @place%></span>
+</div>
 
 <% end %>

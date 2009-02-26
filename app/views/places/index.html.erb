@@ -2,10 +2,17 @@
 
 <h1>Liste over spillesteder</h1>
 
-<ul class="placelist">
+<ul class="list">
 <% for place in @places %>
-    <li><span class="name"><%= link_to place.name, place %></span> &bull; <span class="web"><%= link_to place.web_address, place.web_address %></span></li>
+    <li>
+		<span class="name"><%= link_to place.name, place %></span>
+		<%- unless place.web_address.blank? -%>
+			<span class="web"><%= link_to place.web_address, place.web_address %></span></li>
+		<%- end -%>
 <% end %>
 </ul>
 
-<div class="create_link"><%= link_to 'Opret nyt spillested', new_place_path %></div>
+<h2>Funktioner</h2>
+<ul class="edit">
+	<li><%= link_to 'Opret nyt spillested', new_place_path %></li>
+</ul>

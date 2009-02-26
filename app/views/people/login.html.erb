@@ -13,10 +13,10 @@
     <%= label_tag :password, "Kodeord" %>
     <%= password_field_tag :password, params[:password] %>
   </div>
+</div>
   <div class="formsubmit">
     <span><%= submit_tag "Log ind" %></span>
     <span>(<%= link_to "Jeg har glemt mit kodeord", forgot_password_path %>)</span>
   </div>
-</div>
 
 <% end %>

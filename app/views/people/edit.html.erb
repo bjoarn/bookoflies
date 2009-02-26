@@ -7,21 +7,22 @@
 
 <div class="form">
   <div class="formfield">
-    <%= f.label :name, "Navn" %><br />
+    <%= f.label :name, "Navn" %>
     <%= f.text_field :name %>
   </div>
   <div class="formfield">
-    <%= f.label :email, "Email" %><br />
+    <%= f.label :email, "Email" %>
     <%= f.text_field :email %>
   </div>
   <div class="formfield">
-    <%= f.label :phone, "Telefon" %><br />
+    <%= f.label :phone, "Telefon" %>
     <%= f.text_field :phone %>
   </div>
+</div>
   <div class="formsubmit">
     <span><%= f.submit "Opdater" %></span>
 	  <span class="formcancel"><%= link_to "Annuller", @person %></span>
   </div>
-</div>
+
 
 <% end %>
