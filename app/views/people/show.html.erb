@@ -12,12 +12,14 @@
 	<%- end -%>
 </ul>
 
+<%- unless @person.places.blank? -%>
 <h2><%=h @person.name %> er tilknyttet følgende steder</h2>
 <ul class="employedpeople">
 <% @person.places.each do |place| %>
   <li><%= link_to place.name, place %></li>
 <% end %>
 </ul>
+<%- end -%>
 
 <%- if person_logged_in? -%><!-- should be changed to only show on ones own profile -->
 <h2>Funktioner</h2>

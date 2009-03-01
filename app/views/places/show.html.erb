@@ -2,6 +2,7 @@
 
 <h1><%=h @place.name %></h1>
 
+<%- unless @place.street_address.blank? and @place.extended_address.blank? and @place.zip.blank? and @place.city.blank? and @place.phone.blank? and @place.email.blank? and @place.web_address.blank? -%>
 <address>
 <ul class="address">
 	<%- unless @place.street_address.blank? -%>
@@ -27,12 +28,14 @@
 	<%- end -%>
 </ul>
 </address>
+<%- end -%>
 
-<h2>Beskrivelse</h2>
 <%- unless @place.description.blank? -%>
+<h2>Beskrivelse</h2>
 	<div class="description"><%=h @place.description %></div>
 <%- end -%>
 
+<%- unless @place.pa_system.blank? and @place.mixer.blank? and @place.monitor_system.blank? and @place.monitor_mixer.blank? and @place.outboard.blank? -%>
 <h2>Teknisk info</h2>
 <ul class="techinfo">
 	<%- unless @place.pa_system.blank? -%>
@@ -51,7 +54,9 @@
   	<li class="outboard"><span class="field">Outboard</span>: <span class="value"><%=h @place.outboard %></span></li>
 	<%- end -%>
 </ul>
+<%- end -%>
 
+<%- unless @place.people.blank? -%>
 <h2>Tilknyttede personer</h2>
 <ul class="employedpeople">
 <% @place.people.each do |person| %>
@@ -62,6 +67,7 @@
   </li>
 <%- end -%>
 </ul>
+<%- end -%>
 
 <h2>Funktioner</h2>
 <ul class="edit">
