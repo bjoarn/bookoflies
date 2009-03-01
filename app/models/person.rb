@@ -39,5 +39,9 @@ class Person < ActiveRecord::Base
     @password = Password.create(new_password)
     self.password_hash = @password
   end
+  
+  def to_param
+    id.to_s+"-"+(Unicode::normalize_KD(name).gsub(/[Ææ]/,'ae').gsub(/[Øø]/,'o').downcase.gsub(/[^a-z0-9\s_-]+/,'').gsub(/[\s_-]+/,'-'))
+  end
 
 end
