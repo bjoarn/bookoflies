@@ -3,7 +3,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.xml
   def index
-    @people = Person.find(:all)
+    @people = Person.find(:all, :order => 'name ASC')
 
     respond_to do |format|
       format.html # index.html.erb
