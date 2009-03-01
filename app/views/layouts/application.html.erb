@@ -19,11 +19,11 @@
 		<li><%= link_to "Opret spillested", new_place_path %></li>
 		<li><%= link_to "Personer", people_path %></li>
 		<%- if person_logged_in? -%>
-		<li><%= link_to "Min konto", person_path(session[:person_id]) %></li>
-		<li><%= link_to "Log ud", logout_path %></li>
+		<li><%= link_to "Min konto", edit_account_path %></li>
+		<li><%= link_to "Log ud", logout_account_path %></li>
 		<%- else -%>
-		<li><%= link_to "Log ind", login_path %></li>
-		<li><%= link_to "Opret ny konto", new_person_path %></li>
+		<li><%= link_to "Log ind", login_account_path %></li>
+		<li><%= link_to "Opret ny konto", signup_account_path %></li>
 		<%- end -%>
 	</ul>
 	  <div class="main">

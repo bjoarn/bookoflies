@@ -2,7 +2,7 @@
 
 <h1>Opret konto</h1>
 
-<% form_for(@person) do |f| %>
+<% form_for :account, @person, :url => { :action => "create" } do |f| %>
   <%= f.error_messages %>
 
 <div class="form">

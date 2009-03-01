@@ -20,12 +20,3 @@
 <% end %>
 </ul>
 <%- end -%>
-
-<%- if person_logged_in? -%><!-- should be changed to only show on ones own profile -->
-<h2>Funktioner</h2>
-<ul class="edit">
-	<li><%= link_to 'Ret personlige oplysninger', edit_person_path(@person) %></li>
-	<li><%= link_to "Ændre kodeord", change_password_path %></li>
-	<li><%= link_to 'Slet konto', @person, :confirm => "Er du sikker på at du vil slette #{@person.name}?", :method => :delete %></li>
-</ul>
-<%- end -%>

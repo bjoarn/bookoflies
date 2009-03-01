@@ -62,7 +62,7 @@
 <% @place.people.each do |person| %>
   <li><%= link_to person.name, person %>
   <%- if employed?(@place) && person == current_person -%>
-  (<%= link_to('Fjern mig', unemploy_path(@place), :confirm => "Er du sikker på at du vil slette tilknytningen?", :method => :delete) %>)
+  (<%= link_to('Fjern mig', unemploy_place_path(@place), :confirm => "Er du sikker på at du vil slette tilknytningen?", :method => :delete) %>)
   <%- end -%>
   </li>
 <%- end -%>
@@ -74,6 +74,6 @@
   <li><%= link_to 'Ret oplysninger', edit_place_path(@place) %></li>
   <li><%= link_to 'Slet spillested', @place, :confirm => "Er du sikker på at du vil slette #{@place.name}?", :method => :delete %></li>
   <%- if person_logged_in? && !employed?(@place) -%>
-  <li><%= link_to 'Tilknyt mig til dette spillested', employ_path(@place), :method => :post %></li>
+  <li><%= link_to 'Tilknyt mig til dette spillested', employ_place_path(@place), :method => :post %></li>
   <%- end -%>
 </ul>
