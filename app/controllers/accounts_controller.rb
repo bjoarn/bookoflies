@@ -69,7 +69,7 @@ class AccountsController < ApplicationController
     @person = current_person
 
     respond_to do |format|
-      if @person.update_attributes(params[:person])
+      if @person.update_attributes(params[:account])
         flash[:notice] = 'Kontoen er opdateret.'
         format.html { redirect_to(edit_account_path) }
         format.xml  { head :ok }

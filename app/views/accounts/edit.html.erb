@@ -4,7 +4,7 @@
 
 <h2>Ret personlige oplysninger</h2>
 
-<% form_for(@person) do |f| %>
+<% form_for :account, @person, :url => { :action => "update" }, :html => { :method => :put } do |f| %>
   <%= f.error_messages %>
 
 <div class="form">
