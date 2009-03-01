@@ -41,7 +41,7 @@ class Person < ActiveRecord::Base
   end
   
   def to_param
-    id.to_s+"-"+name.gsub(/[Ææ]/,'ae').gsub(/[Øø]/,'o').downcase.gsub(/[^a-z0-9\s_-]+/,'').gsub(/[\s_-]+/,'-'))
+    id.to_s+"-"+(name.gsub(/[Ææ]/,'ae').gsub(/[Øø]/,'o').downcase.gsub(/[^a-z0-9\s_-]+/,'').gsub(/[\s_-]+/,'-'))
   end
 
 end
