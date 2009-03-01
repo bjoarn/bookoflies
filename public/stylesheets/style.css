@@ -1,7 +1,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	background: #fff url("/images/desktop.jpg") no-repeat top left;
+	background: #fff url("/images/mainbg.jpg") repeat-y 0 248px;
 	color: #000;
 	font: 14px/1.4em "Courier New", Courier, monospace;
 }
@@ -41,7 +41,11 @@ input, textarea {
 	font: 14px/1.4em "Courier New", Courier, monospace;
 }
 
-.container {}
+.container {
+	width: 1024px;
+	height: 248px;
+	background: #fff url("/images/headerbg.jpg") no-repeat 0 0;
+}
 
 .servermessage {
 	position: absolute;
@@ -108,6 +112,7 @@ input, textarea {
 	top: 250px;
 	left: 260px;
 	width: 580px;
+	padding-bottom: 50px;
 }
 /*
 .list {

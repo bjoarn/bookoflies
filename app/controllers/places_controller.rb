@@ -64,7 +64,7 @@ class PlacesController < ApplicationController
         name, city, web_address, phone = place.split(';')
         Place.create(:name => name, :city => city, :web_address => "http://#{web_address}", :phone => phone)
       end
-      flash[:notice] = 'Spillestedet er oprettet.'
+      flash[:notice] = 'Spillestederne er oprettet.'
     end
   end
   
@@ -97,7 +97,7 @@ class PlacesController < ApplicationController
 
     respond_to do |format|
       if @place.update_attributes(params[:place])
-        flash[:notice] = 'Spillestedet er opdateret.'
+        flash[:notice] = 'Spillestedets oplysninger er opdateret.'
         format.html { redirect_to(@place) }
         format.xml  { head :ok }
       else
