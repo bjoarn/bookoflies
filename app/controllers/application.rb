@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
       session[:original_uri] = request.request_uri
       flash[:notice] = "Log ind for at anvende denne funktion"
       # note: remove the preceding slash ('/') to redirect relative (eg. admin/accounts, login)
-      redirect_to({ :controller => "/people", :action => "login" })
+      redirect_to({ :controller => "/accounts", :action => "login" })
     end
   end
   

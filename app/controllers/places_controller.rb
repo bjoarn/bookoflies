@@ -5,7 +5,7 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.xml
   def index
-    @places = Place.find(:all)
+    @places = Place.find(:all, :order => 'name ASC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,9 +18,14 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @place }
+    if params[:format].nil? && @place.to_param != params[:id] # format is html and slugs don't match
+      headers["Status"] = "301 Moved Permanently"
+      redirect_to place_url @place
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @place }
+      end
     end
   end
 
