@@ -57,17 +57,6 @@ class PlacesController < ApplicationController
     end
   end
   
-  def create_bulk
-    if request.post?
-      flash[:notice] = flash[:error] = nil
-      params[:data].each do |place|
-        name, city, web_address, phone = place.split(';')
-        Place.create(:name => name, :city => city, :web_address => "http://#{web_address}", :phone => phone)
-      end
-      flash[:notice] = 'Spillestederne er oprettet.'
-    end
-  end
-  
   def employ
     @place = Place.find(params[:id])
     @place.people << current_person unless @place.people.include?(current_person)

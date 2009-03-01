@@ -2,7 +2,7 @@
 
 <h1>Log ind</h1>
 
-<% form_tag(login_url) do %>
+<% form_tag(login_account_path) do %>
 
 <div class="form">
   <div class="formfield">
@@ -16,7 +16,7 @@
 </div>
   <div class="formsubmit">
     <span><%= submit_tag "Log ind" %></span>
-    <span>(<%= link_to "Jeg har glemt mit kodeord", forgot_password_path %>)</span>
+    <span>(<%= link_to "Jeg har glemt mit kodeord", forgot_password_account_path %>)</span>
   </div>
 
 <% end %>
