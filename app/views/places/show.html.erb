@@ -53,6 +53,9 @@
 	<%- unless @place.outboard.blank? -%>
   	<li class="outboard"><span class="field">Outboard</span>: <span class="value"><%=h @place.outboard %></span></li>
 	<%- end -%>
+	<%- unless @place.effects.blank? -%>
+  	<li class="effects"><span class="field">Effekter</span>: <span class="value"><%=h @place.effects %></span></li>
+	<%- end -%>
 </ul>
 <%- end -%>
 
