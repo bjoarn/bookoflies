@@ -168,7 +168,13 @@ input, textarea {
 
 .edit {
 	list-style: circle;
-	margin: 0 0 0 35px;
+	margin: 0 0 10px 35px;
+}
+
+.updated {
+	margin: 20px 0 10px 10px;
+	color: #777;
+	font-style: italic;
 }
 
 .description {
@@ -224,3 +230,4 @@ input, textarea {
 .forgottenpw {
 	margin: 10px 10px 30px 10px;
 }
+

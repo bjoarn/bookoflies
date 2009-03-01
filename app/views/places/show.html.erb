@@ -77,3 +77,5 @@
   <li><%= link_to 'Tilknyt mig til dette spillested', employ_place_path(@place), :method => :post %></li>
   <%- end -%>
 </ul>
+
+<div class="updated">Siden blev sidst ændret for <%= time_ago_in_words @place.updated_at %> siden</div>
