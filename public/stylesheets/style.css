@@ -34,6 +34,10 @@ a:hover, a:active, a:focus {
 	/*border-bottom: 1px solid #000;*/
 }
 
+p {
+	margin-bottom: 1em;
+}
+
 input, textarea {
 	padding: 1px 3px 2px 3px;
 	border: 1px solid #ddd;
@@ -219,8 +223,4 @@ input, textarea {
 
 .forgottenpw {
 	margin: 10px 10px 30px 10px;
-}
-
-.forgottenpw p {
-	margin-bottom: 10px;
 }
