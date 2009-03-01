@@ -1,0 +1,93 @@
+<% form_for(@place) do |f| %>
+  <%= f.error_messages %>
+
+<fieldset>
+	<legend>Navn og beskrivelse</legend>
+  <div>
+    <%= f.label :name, "Navn" %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :description, "Beskrivelse" %>
+    <%= f.text_area :description %>
+  </div>
+</fieldset>
+<fieldset>
+	<legend>Kontaktinfo</legend>
+  <div>
+    <%= f.label :street_address, "Adresse 1" %>
+    <%= f.text_field :street_address %>
+  </div>
+  <div>
+    <%= f.label :extended_address, "Adresse 2" %>
+    <%= f.text_field :extended_address %>
+  </div>
+  <div>
+    <%= f.label :zip, "Postnr.", :class => "zip_label" %>
+	<span class="zipcity">&amp;</span>
+	<%= f.label :city, "By", :class => "city_label" %>
+    <%= f.text_field :zip %><%= f.text_field :city %>
+  </div>
+  <div>
+    <%= f.label :phone, "Telefon" %>
+    <%= f.text_field :phone %>
+  </div>
+  <div>
+    <%= f.label :email, "Email" %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :web_address, "Web adresse (start med http://)" %>
+    <%- unless @place.web_address.blank? -%>
+		<%= f.text_field :web_address %>
+	<%- else -%>
+		<%= f.text_field :web_address, :value => "http://" %>	
+	<%- end -%>
+  </div>
+</fieldset>
+<fieldset>
+	<legend>Teknisk info</legend>
+  <div>
+    <%= f.label :pa_system, "PA mærke" %>
+    <%= f.text_field :pa_system %>
+  </div>  <div>
+    <%= f.label :speakertype1, "PA højtalere" %>
+    <%= f.text_field :speakercount1, :class => "count" %>
+	<span class="techspace">x</span>
+	<%= f.text_field :speakertype1, :class => "type" %>
+  </div>
+  <div>
+    <%= f.label :speakertype2, " PA højtalere" %>
+	<%= f.text_field :speakercount2, :class => "count" %>
+	<span class="techspace">x</span>
+    <%= f.text_field :speakertype2, :class => "type" %>
+  </div>
+  <div>
+    <%= f.label :mixer, "FOH mixer" %>
+    <%= f.text_field :mixer %>
+  </div>
+  <div>
+    <%= f.label :outboard, "Andet FOH outboard" %>
+    <%= f.text_area :outboard %>
+  </div>
+  <div>
+    <%= f.label :monitor_system, "Monitor mærke" %>
+    <%= f.text_field :monitor_system %>
+  </div>
+  <div>
+    <%= f.label :monitor_mixer, "Monitor mixer" %>
+    <%= f.text_field :monitor_mixer %>
+  </div>
+
+  <div>
+    <%= f.label :effects, "Effekter" %>
+    <%= f.text_area :effects %>
+  </div>
+</fieldset>
+
+<div class="formsubmit">
+    <span><%= f.submit "Opdater" %></span><!-- should be changed to take new vs edit into account in text -->
+	<span class="formcancel"><%= link_to "Annuller", places_path %></span>
+</div>
+
+<% end %>

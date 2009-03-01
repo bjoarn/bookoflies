@@ -6,7 +6,7 @@ body {
 	font: 14px/1.4em "Courier New", Courier, monospace;
 }
 
-ul, li, h1, h2, p, form, label, input, textarea {
+ul, li, h1, h2, p, form, fieldset, legend, label, input, textarea {
 	margin: 0;
 	padding: 0;
 }
@@ -201,30 +201,65 @@ input, textarea {
 	margin: 0 0 10px 20px;
 }
 
-.form {
+fieldset {
 	margin: 10px;
+	padding: 10px;
+	border: 1px solid #999;
 }
 
-.form div {
+fieldset legend {
+	padding: 0 5px;
+	font-weight: bold;
+}
+
+fieldset div {
 	margin-bottom: 10px;
 }
 
-.form label {
+fieldset label {
 	float: left;
 	width: 180px;
 }
 
-.form input {
+fieldset input {
 	width: 300px;
 }
 
-.form textarea {
+fieldset textarea {
 	width: 300px;
 	height: 100px;
 }
 
+fieldset .zip_label {
+	width: 60px;
+}
+fieldset .zipcity {
+	float: left;
+	width: 20px;
+	text-align: center;
+}
+fieldset .city_label {
+	width: 100px;
+}
+fieldset #place_zip {
+	width: 40px;
+	margin-right: 10px;
+}
+fieldset #place_city {
+	width: 242px;
+}
+
+fieldset .count {
+	width: 30px;
+}
+fieldset .techspace {
+}
+fieldset .type {
+	width: 237px;
+}
+
 .formsubmit {
-	margin: 10px 10px 10px 190px;
+	margin: 10px 10px 10px 200px;
 }
 
 .forgottenpw {
