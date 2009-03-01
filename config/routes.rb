@@ -13,4 +13,7 @@ ActionController::Routing::Routes.draw do |map|
                                           :forgot_password => [:get, :post],
                                           :change_password => [:get, :post] }
   map.connect 'account', :controller => 'accounts', :action => 'edit'
+  
+  map.about 'about', :controller => 'static_pages', :action => 'about'
+  
 end
