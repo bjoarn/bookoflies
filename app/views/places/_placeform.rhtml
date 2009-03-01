@@ -48,26 +48,54 @@
 <fieldset>
 	<legend>Teknisk info</legend>
   <div>
-    <%= f.label :pa_system, "PA mærke" %>
+    <%= f.label :pa_system, "<acronym title='Public Address'>PA</acronym> mærke" %>
     <%= f.text_field :pa_system %>
-  </div>  <div>
-    <%= f.label :speakertype1, "PA højtalere" %>
+  </div>  
+  <div>
+    <%= f.label :speakertype1, "<acronym title='Public Address'>PA</acronym> højtalere" %>
     <%= f.text_field :speakercount1, :class => "count" %>
 	<span class="techspace">x</span>
 	<%= f.text_field :speakertype1, :class => "type" %>
   </div>
   <div>
-    <%= f.label :speakertype2, " PA højtalere" %>
+    <%= f.label :speakertype2, " <acronym title='Public Address'>PA</acronym> højtalere" %>
+	<%= f.text_field :speakercount2, :class => "count" %>
+	<span class="techspace">x</span>
+    <%= f.text_field :speakertype2, :class => "type" %>
+  </div>
+  <div class="extra_fields"><%= link_to "Tilføj flere højtalere", places_path %></div>
+  <div>
+    <%= f.label :mixer, "<acronym title='Front of House'>FOH</acronym> mixer" %>
+    <%= f.text_field :mixer %>
+  </div>
+  <div>
+    <%= f.label :speakertype2, "<acronym title='Front of House'>FOH</acronym> dynamics" %>
 	<%= f.text_field :speakercount2, :class => "count" %>
 	<span class="techspace">x</span>
     <%= f.text_field :speakertype2, :class => "type" %>
   </div>
   <div>
-    <%= f.label :mixer, "FOH mixer" %>
-    <%= f.text_field :mixer %>
+    <%= f.label :speakertype2, "<acronym title='Front of House'>FOH</acronym> dynamics" %>
+	<%= f.text_field :speakercount2, :class => "count" %>
+	<span class="techspace">x</span>
+    <%= f.text_field :speakertype2, :class => "type" %>
+  </div>
+  <div class="extra_fields"><%= link_to "Tilføj flere dynamics", places_path %></div>
+  <div>
+    <%= f.label :speakertype2, "<acronym title='Front of House'>FOH</acronym> effects" %>
+	<%= f.text_field :speakercount2, :class => "count" %>
+	<span class="techspace">x</span>
+    <%= f.text_field :speakertype2, :class => "type" %>
   </div>
   <div>
-    <%= f.label :outboard, "Andet FOH outboard" %>
+    <%= f.label :speakertype2, "<acronym title='Front of House'>FOH</acronym> effects" %>
+	<%= f.text_field :speakercount2, :class => "count" %>
+	<span class="techspace">x</span>
+    <%= f.text_field :speakertype2, :class => "type" %>
+  </div>
+  <div class="extra_fields"><%= link_to "Tilføj flere effects", places_path %></div>
+  <div>
+    <%= f.label :outboard, "Andet <acronym title='Front of House'>FOH</acronym> outboard" %>
     <%= f.text_area :outboard %>
   </div>
   <div>
@@ -75,14 +103,56 @@
     <%= f.text_field :monitor_system %>
   </div>
   <div>
+    <%= f.label :speakertype1, "Monitor højtalere" %>
+    <%= f.text_field :speakercount1, :class => "count" %>
+	<span class="techspace">x</span>
+	<%= f.text_field :speakertype1, :class => "type" %>
+  </div>
+  <div>
+    <%= f.label :speakertype1, "Monitor højtalere" %>
+    <%= f.text_field :speakercount1, :class => "count" %>
+	<span class="techspace">x</span>
+	<%= f.text_field :speakertype1, :class => "type" %>
+  </div>
+  <div class="extra_fields"><%= link_to "Tilføj flere højtalere", places_path %></div>
+  <div>
     <%= f.label :monitor_mixer, "Monitor mixer" %>
     <%= f.text_field :monitor_mixer %>
   </div>
-
   <div>
+    <%= f.label :speakertype2, "Monitor dynamics" %>
+	<%= f.text_field :speakercount2, :class => "count" %>
+	<span class="techspace">x</span>
+    <%= f.text_field :speakertype2, :class => "type" %>
+  </div>
+  <div>
+    <%= f.label :speakertype2, "Monitor dynamics" %>
+	<%= f.text_field :speakercount2, :class => "count" %>
+	<span class="techspace">x</span>
+    <%= f.text_field :speakertype2, :class => "type" %>
+  </div>
+  <div class="extra_fields"><%= link_to "Tilføj flere dynamics", places_path %></div>
+  <div>
+    <%= f.label :speakertype2, "Monitor effects" %>
+	<%= f.text_field :speakercount2, :class => "count" %>
+	<span class="techspace">x</span>
+    <%= f.text_field :speakertype2, :class => "type" %>
+  </div>
+  <div>
+    <%= f.label :speakertype2, "Monitor effects" %>
+	<%= f.text_field :speakercount2, :class => "count" %>
+	<span class="techspace">x</span>
+    <%= f.text_field :speakertype2, :class => "type" %>
+  </div>
+  <div class="extra_fields"><%= link_to "Tilføj flere effects", places_path %></div>
+  <div>
+    <%= f.label :outboard, "Andet monitor outboard" %>
+    <%= f.text_area :outboard %>
+  </div>
+  <!--<div>
     <%= f.label :effects, "Effekter" %>
     <%= f.text_area :effects %>
-  </div>
+  </div>-->
 </fieldset>
 
 <div class="formsubmit">

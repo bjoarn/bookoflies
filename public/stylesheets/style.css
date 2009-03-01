@@ -218,15 +218,15 @@ fieldset div {
 
 fieldset label {
 	float: left;
-	width: 180px;
+	width: 200px;
 }
 
 fieldset input {
-	width: 300px;
+	width: 320px;
 }
 
 fieldset textarea {
-	width: 300px;
+	width: 320px;
 	height: 100px;
 }
 
@@ -239,14 +239,14 @@ fieldset .zipcity {
 	text-align: center;
 }
 fieldset .city_label {
-	width: 100px;
+	width: 120px;
 }
 fieldset #place_zip {
 	width: 40px;
 	margin-right: 10px;
 }
 fieldset #place_city {
-	width: 242px;
+	width: 262px;
 }
 
 fieldset .count {
@@ -255,7 +255,19 @@ fieldset .count {
 fieldset .techspace {
 }
 fieldset .type {
-	width: 237px;
+	width: 257px;
+}
+fieldset .extra_fields {
+	text-align: right;
+	padding-right: 10px;
+}
+fieldset .extra_fields a {
+	border-bottom: 1px dotted #000;
+	text-decoration: none;
+}
+fieldset .extra_fields a:hover {
+	border-bottom: 1px solid #000;
+	text-decoration: none;
 }
 
 .formsubmit {
