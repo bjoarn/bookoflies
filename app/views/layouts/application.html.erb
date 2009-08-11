@@ -1,38 +1,44 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="da" lang="da">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <title><%= yield :title %>Book of Lies</title>
-  <%= stylesheet_link_tag 'style', :media => 'all' %>
+<title>Book of Lies</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+.section {
+	width: 300px;
+	margin: 30px;
+	padding: 10px;
+	border: 1px dashed #555;
+	font: 14px/1.3em georgia, serif;
+	}
+a {
+	color: #60e;
+	}
+a:hover {
+	text-decoration: none;
+	}
+input {
+	border: 1px dotted #555;
+	margin: 5px 2px;
+	}
+</style>
 </head>
 <body>
-  <div class="container">
-	<div class="servermessage">
-	<%= content_tag 'div', h(flash[:notice]), :class => 'notice', :id => 'notice' if flash[:notice] %>
-	<%= content_tag 'div', h(flash[:error]), :class => 'notice error', :id => 'error' if flash[:error] %>
-	</div>
-	<div class="header"><%= link_to "Book of Lies", places_path %></div>
-	<ul class="menu">
-		<li><%= link_to "Spillesteder", places_path %></li>
-		<li><%= link_to "Opret spillested", new_place_path %></li>
-		<li><hr /></li>
-		<li><%= link_to "Personer", people_path %></li>
-		<%- if person_logged_in? -%>
-		<li><%= link_to "Min konto", edit_account_path %></li>
-		<li><%= link_to "Log ud", logout_account_path %></li>
-		<%- else -%>
-		<li><%= link_to "Log ind", login_account_path %></li>
-		<li><%= link_to "Opret ny konto", signup_account_path %></li>
-		<%- end -%>
-		<li><hr /></li>
-		<li><%= link_to "Om siden", about_path %>
-	</ul>
-	  <div class="main">
-    <%= yield :layout %>
-    </div>
-  </div>
+
+<div class="section">
+Her arbejdes på en side for den danske lydbranche.<br /><br />
+
+<em>Idéen er siden skal være et forum for teknikere, hvor der kan diskuteres og udveksles erfaringer. Det er også idéen at siden med tiden kan opbygge en database af oplysninger om branchen, spillesteder, teknikere m.v.</em><br /><br />
+
+Du kan tilmelde dig vores mailingliste og få besked når siden går i luften: <br /><br />
+<form action="http://3dbyggeri.createsend.com/t/y/s/diltty/" method="post">
+<label for="diltty-diltty">Email:</label><input type="text" name="cm-diltty-diltty" id="diltty-diltty" />
+<input type="submit" value="Send" />
+</form><br />
+
+Hvis du har gode ideér til siden så skriv til <a href="mailto:info@bookoflies.dk">info@bookoflies.dk</a>
+</div>
+
 
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

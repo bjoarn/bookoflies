@@ -2,6 +2,11 @@ class PlacesController < ApplicationController
 
   before_filter :authenticate, :only => [:edit, :update, :new, :create, :destroy]
 
+  # TEMPORARY ACTION WHILE SITE IS DOWN DURING DEVELOPMENT
+  def keep_me_posted
+    
+  end
+
   # GET /places
   # GET /places.xml
   def index
